@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ini About</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Saya</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body>
-    <h1>Halaman About</h1>
-    <p>Ini adalah halaman about</p>
-    <a href="{{ url_for('index') }}">Kembali ke Home</a>
+    <header>
+        <h1>Selamat Datang di Web Saya</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tentang Saya</h2>
+            <p>Saya adalah mahasiswa Informatika yang tertarik dengan pengembangan web.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Web Saya</p>
+    </footer>
 </body>
 
 </html>

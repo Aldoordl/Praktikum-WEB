@@ -4,28 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrakPemWeb - Pertemuan 2</title>
+    <title>Halaman Utama</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
     <header>
-        <h1>Struktur Project Flask</h1>
+        <h1>Selamat Datang di Web Saya</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
     </header>
+
     <main>
         <section>
-            <h2>Struktur Folder:</h2>
+            <h2>Profil Saya</h2>
+            <p>Halo, saya adalah mahasiswa Informatika.</p>
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profil">
+        </section>
+
+        <section>
+            <h2>Mata Kuliah</h2>
             <ul>
-                <li><strong>app.py</strong> - File utama aplikasi Flask</li>
-                <li><strong>templates/</strong> - Folder untuk file HTML</li>
-                <li><strong>static/css/</strong> - Folder untuk file CSS</li>
-                <li><strong>static/images/</strong> - Folder untuk gambar</li>
+                <li>Pemrograman Web</li>
+                <li>Basis Data</li>
+                <li>Jaringan Komputer</li>
             </ul>
-            <a href="/about">Halaman About</a>
         </section>
     </main>
+
     <footer>
-        <p>Praktikum Pemrograman Web - Pertemuan 2</p>
+        <p>&copy; 2025 - Web Saya</p>
     </footer>
 </body>
 
