@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldoo - Blog & Catatan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a href="/" class="nav-logo">
+                <span>Aldoo</span>
+                <span class="nav-logo-tag">dev</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/skill">Skills</a></li>
+                <li><a href="/project">Projects</a></li>
+                <li><a href="/blog" class="active">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="section-head anim-entry">
+            <span class="section-label-badge">01</span>
+            <h1 class="section-caption">Catatan & Artikel</h1>
+            <div class="section-divider-line"></div>
+        </div>
+
+        <p class="section-subtext anim-entry delay-1">
+            Tulisan seputar pembelajaran pemrograman web, basis data, dan praktikum Informatika.
+        </p>
+
+        <section class="grid-blogs anim-entry delay-1">
+            <article class="blog-box">
+                <div>
+                    <div class="blog-meta-row">
+                        <span class="blog-category-tag">CSS & UI</span>
+                        <span class="blog-timestamp">10 Okt 2025</span>
+                    </div>
+                    <h2 class="blog-heading">
+                        Menerapkan Glassmorphism dengan CSS Murni dan Backdrop-Filter
+                    </h2>
+                    <p class="blog-snippet">
+                        Eksplorasi penggunaan <code>backdrop-filter: blur()</code>, transparansi RGBA, dan penataan
+                        variabel di <code>:root</code> agar website terlihat modern tanpa library eksternal.
+                    </p>
+                </div>
+                <div>
+                    <span class="blog-action-text">
+                        Baca Catatan
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <article class="blog-box">
+                <div>
+                    <div class="blog-meta-row">
+                        <span class="blog-category-tag">Python Flask</span>
+                        <span class="blog-timestamp">03 Okt 2025</span>
+                    </div>
+                    <h2 class="blog-heading">
+                        Manajemen Routing dan Template Jinja2 pada Flask
+                    </h2>
+                    <p class="blog-snippet">
+                        Cara membagi file HTML secara modular, menghubungkan folder static untuk stylesheet terpusat,
+                        dan menyederhanakan struktur kode backend Python.
+                    </p>
+                </div>
+                <div>
+                    <span class="blog-action-text">
+                        Baca Catatan
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <article class="blog-box">
+                <div>
+                    <div class="blog-meta-row">
+                        <span class="blog-category-tag">Basis Data</span>
+                        <span class="blog-timestamp">26 Sep 2025</span>
+                    </div>
+                    <h2 class="blog-heading">
+                        Dasar Normalisasi Database: Menghindari Redundansi Data
+                    </h2>
+                    <p class="blog-snippet">
+                        Ringkasan konsep bentuk normal pertama (1NF) hingga ketiga (3NF) dalam menyusun relasi tabel
+                        mahasiswa dan mata kuliah pada tugas basis data.
+                    </p>
+                </div>
+                <div>
+                    <span class="blog-action-text">
+                        Baca Catatan
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <article class="blog-box">
+                <div>
+                    <div class="blog-meta-row">
+                        <span class="blog-category-tag">Jaringan</span>
+                        <span class="blog-timestamp">18 Sep 2025</span>
+                    </div>
+                    <h2 class="blog-heading">
+                        Alur Permintaan HTTP dari Browser ke Server Web
+                    </h2>
+                    <p class="blog-snippet">
+                        Memahami proses DNS lookup, koneksi 3-way handshake TCP, transmisi paket data HTTP request,
+                        hingga pengembalian dokumen HTML oleh server.
+                    </p>
+                </div>
+                <div>
+                    <span class="blog-action-text">
+                        Baca Catatan
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
+    </footer>
+</body>
+
+</html>
