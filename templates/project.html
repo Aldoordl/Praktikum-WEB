@@ -1,154 +1,126 @@
-<!DOCTYPE html>
-<html lang="id">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - Portofolio Proyek</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}Portfolio Web{% endblock %}
 
-<body>
-    <header class="site-header">
-        <nav class="nav-bar">
-            <a href="/" class="nav-logo">
-                <span>Aldoo</span>
-                <span class="nav-logo-tag">dev</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/skill">Skills</a></li>
-                <li><a href="/project" class="active">Projects</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
-    <main class="container">
-        <div class="section-head anim-entry">
-            <span class="section-label-badge">01</span>
-            <h1 class="section-caption">Portofolio & Proyek</h1>
-            <div class="section-divider-line"></div>
+<div class="section-head anim-entry">
+    <span class="section-label-badge">01</span>
+    <h1 class="section-caption">Portofolio & Proyek</h1>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-1">
+    Daftar aplikasi dan tugas praktikum yang telah saya kembangkan selama perkuliahan.
+</p>
+
+<section class="grid-projects anim-entry delay-1">
+    <article class="project-box">
+        <div>
+            <span class="project-tag-badge">Web Application</span>
+            <h2 class="project-name">Web Praktikum Multi-Halaman</h2>
+            <p class="project-summary">
+                Aplikasi web modular berbasis Python Flask dengan arsitektur stylesheet tunggal, layout
+                Flexbox/Grid, efek visual kaca backdrop-filter, dan animasi keyframes.
+            </p>
+            <div class="project-pills">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Flask</span>
+                <span class="tech-chip">CSS3 Glassmorphism</span>
+                <span class="tech-chip">Jinja2</span>
+            </div>
         </div>
+        <div>
+            <a href="/" class="project-footer-link">
+                Lihat Halaman Utama
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+    </article>
 
-        <p class="section-subtext anim-entry delay-1">
-            Daftar aplikasi dan tugas praktikum yang telah saya kembangkan selama perkuliahan.
-        </p>
+    <article class="project-box">
+        <div>
+            <span class="project-tag-badge">Web Application</span>
+            <h2 class="project-name">AldoRidlo - Portofolio</h2>
+            <p class="project-summary">
+                Portofolio Pribadi.
+            </p>
+            <div class="project-pills">
+                <span class="tech-chip">Next JS</span>
+                <span class="tech-chip">Tailwind CSS</span>
+                <span class="tech-chip">Lenis</span>
+                <span class="tech-chip">GSAP</span>
+            </div>
+        </div>
+        <div>
+            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
+                Kunjungi Portofolio
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+    </article>
 
-        <section class="grid-projects anim-entry delay-1">
-            <article class="project-box">
-                <div>
-                    <span class="project-tag-badge">Web Application</span>
-                    <h2 class="project-name">Web Praktikum Multi-Halaman</h2>
-                    <p class="project-summary">
-                        Aplikasi web modular berbasis Python Flask dengan arsitektur stylesheet tunggal, layout
-                        Flexbox/Grid, efek visual kaca backdrop-filter, dan animasi keyframes.
-                    </p>
-                    <div class="project-pills">
-                        <span class="tech-chip">Python</span>
-                        <span class="tech-chip">Flask</span>
-                        <span class="tech-chip">CSS3 Glassmorphism</span>
-                        <span class="tech-chip">Jinja2</span>
-                    </div>
-                </div>
-                <div>
-                    <a href="/" class="project-footer-link">
-                        Lihat Halaman Utama
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
-            </article>
+    <article class="project-box">
+        <div>
+            <span class="project-tag-badge">UI / UX Design</span>
+            <h2 class="project-name">Pet Care - Design System & Prototype</h2>
+            <p class="project-summary">
+                Rancangan sistem desain dan prototype aplikasi berbasis web yang menyediakan layanan adopsi,
+                perawatan, dan komunitas bagi pecinta hewan peliharaan.
+            </p>
+            <div class="project-pills">
+                <span class="tech-chip">Figma</span>
+                <span class="tech-chip">Wireframe</span>
+                <span class="tech-chip">Prototype</span>
+                <span class="tech-chip">Design System</span>
+            </div>
+        </div>
+        <div>
+            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
+                Lihat Hasil
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+    </article>
 
-            <article class="project-box">
-                <div>
-                    <span class="project-tag-badge">Web Application</span>
-                    <h2 class="project-name">AldoRidlo - Portofolio</h2>
-                    <p class="project-summary">
-                        Portofolio Pribadi.
-                    </p>
-                    <div class="project-pills">
-                        <span class="tech-chip">Next JS</span>
-                        <span class="tech-chip">Tailwind CSS</span>
-                        <span class="tech-chip">Lenis</span>
-                        <span class="tech-chip">GSAP</span>
-                    </div>
-                </div>
-                <div>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                        Kunjungi Portofolio
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
-            </article>
+    <article class="project-box">
+        <div>
+            <span class="project-tag-badge">Web Application</span>
+            <h2 class="project-name">Portofolio Website - Laravel</h2>
+            <p class="project-summary">
+                Portofolio Website Pribadi yang dibangun menggunakan Laravel.
+            </p>
+            <div class="project-pills">
+                <span class="tech-chip">Laravel</span>
+                <span class="tech-chip">Tailwind CSS</span>
+                <span class="tech-chip">Bootstrap CSS</span>
+                <span class="tech-chip">Responsive</span>
+            </div>
+        </div>
+        <div>
+            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
+                Kunjungi Portofolio
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+    </article>
+</section>
 
-            <article class="project-box">
-                <div>
-                    <span class="project-tag-badge">UI / UX Design</span>
-                    <h2 class="project-name">Pet Care - Design System & Prototype</h2>
-                    <p class="project-summary">
-                        Rancangan sistem desain dan prototype aplikasi berbasis web yang menyediakan layanan adopsi,
-                        perawatan, dan komunitas bagi pecinta hewan peliharaan.
-                    </p>
-                    <div class="project-pills">
-                        <span class="tech-chip">Figma</span>
-                        <span class="tech-chip">Wireframe</span>
-                        <span class="tech-chip">Prototype</span>
-                        <span class="tech-chip">Design System</span>
-                    </div>
-                </div>
-                <div>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                        Lihat Hasil
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
-            </article>
 
-            <article class="project-box">
-                <div>
-                    <span class="project-tag-badge">Web Application</span>
-                    <h2 class="project-name">Portofolio Website - Laravel</h2>
-                    <p class="project-summary">
-                        Portofolio Website Pribadi yang dibangun menggunakan Laravel.
-                    </p>
-                    <div class="project-pills">
-                        <span class="tech-chip">Laravel</span>
-                        <span class="tech-chip">Tailwind CSS</span>
-                        <span class="tech-chip">Bootstrap CSS</span>
-                        <span class="tech-chip">Responsive</span>
-                    </div>
-                </div>
-                <div>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                        Kunjungi Portofolio
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
-            </article>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
-    </footer>
-</body>
-
-</html>
+{% endblock %}

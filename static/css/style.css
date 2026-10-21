@@ -38,6 +38,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-scrollbar: none;
+    scrollbar-width: none;
 }
 
 html {
@@ -528,6 +530,111 @@ main.container {
     margin-top: 4px;
 }
 
+/* Profile Card */
+.profile-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+}
+
+.profile-card:hover {
+    border-color: var(--border-glass-hover);
+    background: var(--bg-card-hover);
+}
+
+.profile-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.profile-user-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-2);
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+}
+
+.profile-user-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.profile-user-role {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.profile-grid-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.profile-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.profile-item:hover {
+    border-color: var(--border-glass-hover);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.profile-item-label {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-item-value {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .grid-skills {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -560,6 +667,67 @@ main.container {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.badge-mahir {
+    background: rgba(52, 211, 153, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.badge-mahir .badge-dot {
+    background-color: #34d399;
+    box-shadow: 0 0 6px #34d399;
+}
+
+.badge-menengah {
+    background: rgba(92, 169, 255, 0.12);
+    color: #94cbff;
+    border: 1px solid rgba(92, 169, 255, 0.3);
+}
+
+.badge-menengah .badge-dot {
+    background-color: #94cbff;
+    box-shadow: 0 0 6px #94cbff;
+}
+
+.badge-dasar {
+    background: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.badge-dasar .badge-dot {
+    background-color: #fbbf24;
+    box-shadow: 0 0 6px #fbbf24;
 }
 
 .skill-tags-group {
@@ -606,6 +774,7 @@ main.container {
 
 .meter-bar {
     height: 100%;
+    width: var(--fill, 0%);
     background: var(--accent-gradient);
     border-radius: var(--radius-pill);
     box-shadow: 0 0 10px rgba(92, 169, 255, 0.35);
@@ -980,7 +1149,8 @@ main.container {
     .grid-skills,
     .grid-projects,
     .grid-blogs,
-    .about-metrics {
+    .about-metrics,
+    .profile-grid-details {
         grid-template-columns: 1fr;
     }
 

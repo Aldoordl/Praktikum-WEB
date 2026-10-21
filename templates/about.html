@@ -1,115 +1,179 @@
-<!DOCTYPE html>
-<html lang="id">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - Tentang Saya</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}Portfolio Web{% endblock %}
 
-<body>
-    <header class="site-header">
-        <nav class="nav-bar">
-            <a href="/" class="nav-logo">
-                <span>Aldoo</span>
-                <span class="nav-logo-tag">dev</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about" class="active">About</a></li>
-                <li><a href="/skill">Skills</a></li>
-                <li><a href="/project">Projects</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
-    <main class="container">
-        <div class="section-head anim-entry">
-            <span class="section-label-badge">01</span>
-            <h1 class="section-caption">Tentang Saya</h1>
-            <div class="section-divider-line"></div>
+<div class="section-head anim-entry">
+    <span class="section-label-badge">01</span>
+    <h1 class="section-caption">Tentang Saya</h1>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-1">
+    Informasi mengenai latar belakang pendidikan, minat pemrograman, dan perjalanan belajar saya.
+</p>
+
+<section class="about-card-box anim-entry delay-1">
+    <p class="about-paragraph">
+        Halo, perkenalkan saya <strong>Aldoo</strong>. Saat ini saya sedang menempuh semester 3 program studi
+        Informatika. Ketertarikan saya pada dunia pemrograman bermula dari rasa ingin tahu bagaimana sebuah
+        website dapat menyajikan informasi secara interaktif dan efisien.
+    </p>
+    <p class="about-paragraph">
+        Saya fokus memperdalam keahlian di bidang pengembangan web modern—baik perancangan antarmuka pengguna
+        (UI/UX) berbasis CSS murni yang responsif, hingga logika backend menggunakan framework Python Flask
+        serta pengelolaan basis data relasional.
+    </p>
+
+    <div class="about-metrics">
+        <div class="metric-item">
+            <div class="metric-value">{{ profil.semester }}</div>
+            <div class="metric-desc">Semester Berjalan</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">10+</div>
+            <div class="metric-desc">Tugas & Proyek Mini</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">100%</div>
+            <div class="metric-desc">Fokus Belajar</div>
+        </div>
+    </div>
+</section>
+
+<div class="section-head anim-entry delay-2">
+    <span class="section-label-badge">02</span>
+    <h2 class="section-caption">Kartu Profil & Status</h2>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-2">
+    Informasi biodata terstruktur yang terhubung langsung dengan backend data Flask.
+</p>
+
+<section class="profile-card anim-entry delay-2">
+    <div class="profile-card-header">
+        <div class="profile-user-summary">
+            <div class="profile-avatar-circle">
+                {{ profil.nama[0] }}
+            </div>
+            <div>
+                <h3 class="profile-user-name">{{ profil.nama }}</h3>
+                <span class="profile-user-role">Mahasiswa &bull; Semester {{ profil.semester }}</span>
+            </div>
         </div>
 
-        <p class="section-subtext anim-entry delay-1">
-            Informasi mengenai latar belakang pendidikan, minat pemrograman, dan perjalanan belajar saya.
+        <div class="profile-status-wrapper">
+            {% if profil.umur >= 18 %}
+            <span class="badge badge-mahir">
+                <span class="badge-dot"></span> Sudah dewasa
+            </span>
+            {% else %}
+            <span class="badge badge-dasar">
+                <span class="badge-dot"></span> Belum dewasa
+            </span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="profile-grid-details">
+        <div class="profile-item">
+            <span class="profile-item-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Nama Lengkap
+            </span>
+            <span class="profile-item-value">{{ profil.nama }}</span>
+        </div>
+
+        <div class="profile-item">
+            <span class="profile-item-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Usia & Status
+            </span>
+            <div class="profile-item-value">
+                <span>{{ profil.umur }} Tahun</span>
+                {% if profil.umur >= 18 %}
+                <span class="badge badge-mahir">
+                    <span class="badge-dot"></span> Sudah dewasa
+                </span>
+                {% else %}
+                <span class="badge badge-dasar">
+                    <span class="badge-dot"></span> Belum dewasa
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-item">
+            <span class="profile-item-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Kota Asal
+            </span>
+            <span class="profile-item-value">{{ profil.kota }}</span>
+        </div>
+
+        <div class="profile-item">
+            <span class="profile-item-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                Kampus / Universitas
+            </span>
+            <span class="profile-item-value">{{ profil.kampus }}</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-head anim-entry delay-2">
+    <span class="section-label-badge">03</span>
+    <h2 class="section-caption">Fokus Pembelajaran</h2>
+    <div class="section-divider-line"></div>
+</div>
+
+<section class="grid-courses anim-entry delay-2">
+    <div class="course-box">
+        <div class="course-top">
+            <span class="course-index">A</span>
+            <h3 class="course-name">Web Frontend</h3>
+        </div>
+        <p class="course-text">
+            Mempelajari struktur semantik HTML5, teknik layouting modern Flexbox & Grid, CSS kustom, serta
+            responsivitas perangkat.
         </p>
+    </div>
 
-        <section class="about-card-box anim-entry delay-1">
-            <p class="about-paragraph">
-                Halo, perkenalkan saya <strong>Aldoo</strong>. Saat ini saya sedang menempuh semester 3 program studi
-                Informatika. Ketertarikan saya pada dunia pemrograman bermula dari rasa ingin tahu bagaimana sebuah
-                website dapat menyajikan informasi secara interaktif dan efisien.
-            </p>
-            <p class="about-paragraph">
-                Saya fokus memperdalam keahlian di bidang pengembangan web modern—baik perancangan antarmuka pengguna
-                (UI/UX) berbasis CSS murni yang responsif, hingga logika backend menggunakan framework Python Flask
-                serta pengelolaan basis data relasional.
-            </p>
-
-            <div class="about-metrics">
-                <div class="metric-item">
-                    <div class="metric-value">3</div>
-                    <div class="metric-desc">Semester Berjalan</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">10+</div>
-                    <div class="metric-desc">Tugas & Proyek Mini</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">100%</div>
-                    <div class="metric-desc">Fokus Belajar</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-head anim-entry delay-2">
-            <span class="section-label-badge">02</span>
-            <h2 class="section-caption">Fokus Pembelajaran</h2>
-            <div class="section-divider-line"></div>
+    <div class="course-box">
+        <div class="course-top">
+            <span class="course-index">B</span>
+            <h3 class="course-name">Backend & Basis Data</h3>
         </div>
+        <p class="course-text">
+            Mengembangkan web berbasis Flask, perancangan REST API, operasi CRUD, dan query database terstruktur
+            (SQL).
+        </p>
+    </div>
 
-        <section class="grid-courses anim-entry delay-2">
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">A</span>
-                    <h3 class="course-name">Web Frontend</h3>
-                </div>
-                <p class="course-text">
-                    Mempelajari struktur semantik HTML5, teknik layouting modern Flexbox & Grid, CSS kustom, serta
-                    responsivitas perangkat.
-                </p>
-            </div>
+    <div class="course-box">
+        <div class="course-top">
+            <span class="course-index">C</span>
+            <h3 class="course-name">Infrastruktur & Jaringan</h3>
+        </div>
+        <p class="course-text">
+            Memahami arsitektur protokol internet, analisis paket data, dasar server Linux, dan kolaborasi kode
+            via Git.
+        </p>
+    </div>
+</section>
 
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">B</span>
-                    <h3 class="course-name">Backend & Basis Data</h3>
-                </div>
-                <p class="course-text">
-                    Mengembangkan web berbasis Flask, perancangan REST API, operasi CRUD, dan query database terstruktur
-                    (SQL).
-                </p>
-            </div>
-
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">C</span>
-                    <h3 class="course-name">Infrastruktur & Jaringan</h3>
-                </div>
-                <p class="course-text">
-                    Memahami arsitektur protokol internet, analisis paket data, dasar server Linux, dan kolaborasi kode
-                    via Git.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
-    </footer>
-</body>
-
-</html>
+{% endblock %}

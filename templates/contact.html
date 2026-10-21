@@ -1,137 +1,106 @@
-<!DOCTYPE html>
-<html lang="id">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - Hubungi Saya</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}Portfolio Web{% endblock %}
 
-<body>
-    <header class="site-header">
-        <nav class="nav-bar">
-            <a href="/" class="nav-logo">
-                <span>Aldoo</span>
-                <span class="nav-logo-tag">dev</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/skill">Skills</a></li>
-                <li><a href="/project">Projects</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
-    <main class="container">
-        <div class="section-head anim-entry">
-            <span class="section-label-badge">01</span>
-            <h1 class="section-caption">Hubungi Saya</h1>
-            <div class="section-divider-line"></div>
+<div class="section-head anim-entry">
+    <span class="section-label-badge">01</span>
+    <h1 class="section-caption">Hubungi Saya</h1>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-1">
+    Silakan hubungi saya melalui email atau media sosial di bawah ini jika ingin berdiskusi atau berkolaborasi.
+</p>
+
+<section class="contact-channels anim-entry delay-1">
+    <a href="mailto:Aldoo@example.com" class="channel-item">
+        <div class="channel-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
         </div>
+        <span class="channel-title">EMAIL</span>
+        <span class="channel-detail">Aldoo@example.com</span>
+    </a>
 
-        <p class="section-subtext anim-entry delay-1">
-            Silakan hubungi saya melalui email atau media sosial di bawah ini jika ingin berdiskusi atau berkolaborasi.
-        </p>
-
-        <section class="contact-channels anim-entry delay-1">
-            <a href="mailto:Aldoo@example.com" class="channel-item">
-                <div class="channel-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
-                </div>
-                <span class="channel-title">EMAIL</span>
-                <span class="channel-detail">Aldoo@example.com</span>
-            </a>
-
-            <a href="https://github.com/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
-                <div class="channel-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                        <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                </div>
-                <span class="channel-title">GITHUB</span>
-                <span class="channel-detail">github.com/Aldoo</span>
-            </a>
-
-            <a href="https://instagram.com/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
-                <div class="channel-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                    </svg>
-                </div>
-                <span class="channel-title">INSTAGRAM</span>
-                <span class="channel-detail">@Aldoo</span>
-            </a>
-
-            <a href="https://linkedin.com/in/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
-                <div class="channel-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                        <rect width="4" height="12" x="2" y="9" />
-                        <circle cx="4" cy="4" r="2" />
-                    </svg>
-                </div>
-                <span class="channel-title">LINKEDIN</span>
-                <span class="channel-detail">linkedin.com/in/Aldoo</span>
-            </a>
-        </section>
-
-        <div class="section-head anim-entry delay-1">
-            <span class="section-label-badge">02</span>
-            <h2 class="section-caption">Kirim Pesan</h2>
-            <div class="section-divider-line"></div>
+    <a href="https://github.com/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
+        <div class="channel-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
         </div>
+        <span class="channel-title">GITHUB</span>
+        <span class="channel-detail">github.com/Aldoo</span>
+    </a>
 
-        <form action="#" method="POST" class="contact-form-grid anim-entry delay-2"
-            onsubmit="event.preventDefault(); alert('Terima kasih, pesan Anda berhasil dikirim!');">
-            <div class="form-field">
-                <label for="nama" class="field-label">NAMA LENGKAP</label>
-                <input type="text" id="nama" name="nama" class="input-control" placeholder="Masukkan nama Anda"
-                    required>
-            </div>
+    <a href="https://instagram.com/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
+        <div class="channel-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+        </div>
+        <span class="channel-title">INSTAGRAM</span>
+        <span class="channel-detail">@Aldoo</span>
+    </a>
 
-            <div class="form-field">
-                <label for="email" class="field-label">ALAMAT EMAIL</label>
-                <input type="email" id="email" name="email" class="input-control" placeholder="Masukkan email Anda"
-                    required>
-            </div>
+    <a href="https://linkedin.com/in/Aldoo" target="_blank" rel="noopener noreferrer" class="channel-item">
+        <div class="channel-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+            </svg>
+        </div>
+        <span class="channel-title">LINKEDIN</span>
+        <span class="channel-detail">linkedin.com/in/Aldoo</span>
+    </a>
+</section>
 
-            <div class="form-field">
-                <label for="pesan" class="field-label">PESAN</label>
-                <textarea id="pesan" name="pesan" class="textarea-control"
-                    placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
-            </div>
+<div class="section-head anim-entry delay-1">
+    <span class="section-label-badge">02</span>
+    <h2 class="section-caption">Kirim Pesan</h2>
+    <div class="section-divider-line"></div>
+</div>
 
-            <div>
-                <button type="submit" class="btn-primary">
-                    <span>Kirim Pesan</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                </button>
-            </div>
-        </form>
-    </main>
+<form action="#" method="POST" class="contact-form-grid anim-entry delay-2"
+    onsubmit="event.preventDefault(); alert('Terima kasih, pesan Anda berhasil dikirim!');">
+    <div class="form-field">
+        <label for="nama" class="field-label">NAMA LENGKAP</label>
+        <input type="text" id="nama" name="nama" class="input-control" placeholder="Masukkan nama Anda" required>
+    </div>
 
-    <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
-    </footer>
-</body>
+    <div class="form-field">
+        <label for="email" class="field-label">ALAMAT EMAIL</label>
+        <input type="email" id="email" name="email" class="input-control" placeholder="Masukkan email Anda" required>
+    </div>
 
-</html>
+    <div class="form-field">
+        <label for="pesan" class="field-label">PESAN</label>
+        <textarea id="pesan" name="pesan" class="textarea-control"
+            placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="btn-primary">
+            <span>Kirim Pesan</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+        </button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,140 +1,59 @@
-<!DOCTYPE html>
-<html lang="id">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - Keahlian</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}Portfolio Web{% endblock %}
 
-<body>
-    <header class="site-header">
-        <nav class="nav-bar">
-            <a href="/" class="nav-logo">
-                <span>Aldoo</span>
-                <span class="nav-logo-tag">dev</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/skill" class="active">Skills</a></li>
-                <li><a href="/project">Projects</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
-    <main class="container">
-        <div class="section-head anim-entry">
-            <span class="section-label-badge">01</span>
-            <h1 class="section-caption">Keahlian & Teknologi</h1>
-            <div class="section-divider-line"></div>
+<div class="section-head anim-entry">
+    <span class="section-label-badge">01</span>
+    <h1 class="section-caption">Keahlian & Teknologi</h1>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-1">
+    Ringkasan teknologi, bahasa pemrograman, dan alat bantu yang saya gunakan dalam tugas dan proyek
+    perkuliahan.
+</p>
+
+<section class="grid-skills anim-entry delay-1">
+    {% for item in keahlian %}
+    <div class="skill-panel">
+        <div class="skill-header">
+            <h2 class="skill-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                {{ item.nama }}
+            </h2>
+
+            {% if item.level >= 80 %}
+            <span class="badge badge-mahir">
+                <span class="badge-dot"></span> Mahir
+            </span>
+            {% elif item.level >= 70 %}
+            <span class="badge badge-menengah">
+                <span class="badge-dot"></span> Menengah
+            </span>
+            {% else %}
+            <span class="badge badge-dasar">
+                <span class="badge-dot"></span> Dasar
+            </span>
+            {% endif %}
         </div>
 
-        <p class="section-subtext anim-entry delay-1">
-            Ringkasan teknologi, bahasa pemrograman, dan alat bantu yang saya gunakan dalam tugas dan proyek
-            perkuliahan.
-        </p>
-
-        <section class="grid-skills anim-entry delay-1">
-            <div class="skill-panel">
-                <h2 class="skill-panel-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"></polyline>
-                        <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    Frontend Dev
-                </h2>
-
-                <div class="skill-tags-group">
-                    <span class="skill-tag">HTML5 Semantik</span>
-                    <span class="skill-tag">CSS3 (Grid & Flexbox)</span>
-                    <span class="skill-tag">JavaScript (ES6+)</span>
-                    <span class="skill-tag">Responsive Design</span>
-                    <span class="skill-tag">Glassmorphism UI</span>
-                </div>
-
-                <div class="meter-wrap">
-                    <div class="meter-labels">
-                        <span>Pemahaman</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="meter-track">
-                        <div class="meter-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
+        <div class="meter-wrap">
+            <div class="meter-labels">
+                <span>Pemahaman</span>
+                <span>{{ item.level }}%</span>
             </div>
-
-            <div class="skill-panel">
-                <h2 class="skill-panel-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
-                        <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
-                        <line x1="6" x2="6.01" y1="6" y2="6" />
-                        <line x1="6" x2="6.01" y1="18" y2="18" />
-                    </svg>
-                    Backend & Database
-                </h2>
-
-                <div class="skill-tags-group">
-                    <span class="skill-tag">Python 3</span>
-                    <span class="skill-tag">Flask Framework</span>
-                    <span class="skill-tag">MySQL & Relational SQL</span>
-                    <span class="skill-tag">Jinja2 Template</span>
-                    <span class="skill-tag">RESTful API Design</span>
-                </div>
-
-                <div class="meter-wrap">
-                    <div class="meter-labels">
-                        <span>Pemahaman</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="meter-track">
-                        <div class="meter-bar" style="width: 80%;"></div>
-                    </div>
-                </div>
+            <div class="meter-track">
+                <div class="meter-bar" style="--fill: {{ item.level }}%;"></div>
             </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
 
-            <div class="skill-panel">
-                <h2 class="skill-panel-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path
-                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                        </path>
-                    </svg>
-                    Tools & Networking
-                </h2>
-
-                <div class="skill-tags-group">
-                    <span class="skill-tag">Git & GitHub</span>
-                    <span class="skill-tag">VS Code Editor</span>
-                    <span class="skill-tag">Linux / Bash CLI</span>
-                    <span class="skill-tag">Konsep TCP/IP</span>
-                    <span class="skill-tag">Figma UI Prototype</span>
-                </div>
-
-                <div class="meter-wrap">
-                    <div class="meter-labels">
-                        <span>Pemahaman</span>
-                        <span>78%</span>
-                    </div>
-                    <div class="meter-track">
-                        <div class="meter-bar" style="width: 78%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
-    </footer>
-</body>
-
-</html>
+{% endblock %}

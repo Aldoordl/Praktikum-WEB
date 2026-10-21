@@ -1,102 +1,52 @@
-<!DOCTYPE html>
-<html lang="id">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - Portfolio Web</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}Portfolio Web{% endblock %}
 
-<body>
-    <header class="site-header">
-        <nav class="nav-bar">
-            <a href="/" class="nav-logo">
-                <span>Aldoo</span>
-                <span class="nav-logo-tag">dev</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/skill">Skills</a></li>
-                <li><a href="/project">Projects</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
-    <main class="container">
-        <section class="hero-box anim-entry">
-            <div class="profile-avatar-wrap">
-                <img src="{{ url_for('static', filename='images/profile.PNG') }}" alt="Foto Aldoo"
-                    class="profile-avatar-img">
-            </div>
+<section class="hero-box anim-entry">
+    <div class="profile-avatar-wrap">
+        <img src="{{ url_for('static', filename='images/profile.PNG') }}" alt="Foto Aldoo" class="profile-avatar-img">
+    </div>
 
-            <div class="hero-info">
-                <div class="status-pill">
-                    <span class="status-dot"></span>
-                    Mahasiswa Informatika &bull; Sem 3
-                </div>
-                <h1 class="hero-name">
-                    Halo, saya <span class="text-gradient">Aldoo</span>.<br>Saya bikin web.
-                </h1>
-                <p class="hero-summary">
-                    Tertarik dengan pengembangan web full-stack, perancangan basis data, dan arsitektur jaringan
-                    komputer. Fokus belajar membangun solusi digital yang fungsional, bersih, dan nyaman digunakan.
-                </p>
-                <div class="hero-cta-row">
-                    <a href="/project" class="btn-primary">Lihat Proyek</a>
-                    <a href="/contact" class="btn-secondary">Hubungi Saya</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-head anim-entry delay-1">
-            <span class="section-label-badge">01</span>
-            <h2 class="section-caption">Mata Kuliah Utama</h2>
-            <div class="section-divider-line"></div>
+    <div class="hero-info">
+        <div class="status-pill">
+            <span class="status-dot"></span>
+            Mahasiswa Informatika &bull; Sem {{ profil.semester }}
         </div>
+        <h1 class="hero-name">
+            Halo, saya <span class="text-gradient">{{ profil.nama }}</span>.<br>Saya bikin web.
+        </h1>
+        <p class="hero-summary">
+            Tertarik dengan pengembangan web full-stack, perancangan basis data, dan arsitektur jaringan
+            komputer. Fokus belajar membangun solusi digital yang fungsional, bersih, dan nyaman digunakan.
+        </p>
+        <div class="hero-cta-row">
+            <a href="/project" class="btn-primary">Lihat Proyek</a>
+            <a href="/contact" class="btn-secondary">Hubungi Saya</a>
+        </div>
+    </div>
+</section>
 
-        <section class="grid-courses anim-entry delay-2">
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">01</span>
-                    <h3 class="course-name">Pemrograman Web</h3>
-                </div>
-                <p class="course-text">
-                    Belajar membangun aplikasi web dari frontend hingga backend, perancangan antarmuka responsif, dan
-                    integrasi server Flask.
-                </p>
-            </div>
+<div class="section-head anim-entry delay-1">
+    <span class="section-label-badge">01</span>
+    <h2 class="section-caption">Mata Kuliah Utama</h2>
+    <div class="section-divider-line"></div>
+</div>
 
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">02</span>
-                    <h3 class="course-name">Basis Data</h3>
-                </div>
-                <p class="course-text">
-                    Memahami konsep perancangan database relasional, normalisasi tabel (1NF-3NF), query SQL, dan
-                    integritas data.
-                </p>
-            </div>
+<section class="grid-courses anim-entry delay-2">
+    {% for matkul in matkul %}
+    <div class="course-box">
+        <div class="course-top">
+            <span class="course-index">{{ matkul.kode }}</span>
+            <h3 class="course-name">{{ matkul.nama }}</h3>
+        </div>
+        <p class="course-text">
+            {{ matkul.desc }}
+        </p>
+    </div>
+    {% endfor %}
+</section>
+</main>
 
-            <div class="course-box">
-                <div class="course-top">
-                    <span class="course-index">03</span>
-                    <h3 class="course-name">Jaringan Komputer</h3>
-                </div>
-                <p class="course-text">
-                    Mempelajari model TCP/IP, routing, arsitektur protokol client-server, serta dasar keamanan jaringan
-                    terdistribusi.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
-    </footer>
-</body>
-
-</html>
+{% endblock %}
