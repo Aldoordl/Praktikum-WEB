@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Portfolio Web{% endblock %}
+{% block title %}Projects{% endblock %}
 
 {% block content %}
 
@@ -15,24 +15,45 @@
 </p>
 
 <section class="grid-projects anim-entry delay-1">
+    {% for item in proyek %}
     <article class="project-box">
         <div>
-            <span class="project-tag-badge">Web Application</span>
-            <h2 class="project-name">Web Praktikum Multi-Halaman</h2>
+            <span class="project-tag-badge">
+                {% if item.icon == 'monitor' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                Web Application
+                {% elif item.icon == 'database' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                Database System
+                {% elif item.icon == 'gamepad' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="6"/></svg>
+                Mini Game
+                {% elif item.icon == 'search' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                Automation Tool
+                {% elif item.icon == 'file' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                Dokumentasi
+                {% elif item.icon == 'chart' %}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                Dashboard
+                {% else %}
+                Project
+                {% endif %}
+            </span>
+            <h2 class="project-name">{{ item.judul }}</h2>
             <p class="project-summary">
-                Aplikasi web modular berbasis Python Flask dengan arsitektur stylesheet tunggal, layout
-                Flexbox/Grid, efek visual kaca backdrop-filter, dan animasi keyframes.
+                {{ item.desc }}
             </p>
             <div class="project-pills">
-                <span class="tech-chip">Python</span>
-                <span class="tech-chip">Flask</span>
-                <span class="tech-chip">CSS3 Glassmorphism</span>
-                <span class="tech-chip">Jinja2</span>
+                {% for t in item.tech %}
+                <span class="tech-chip">{{ t }}</span>
+                {% endfor %}
             </div>
         </div>
         <div>
-            <a href="/" class="project-footer-link">
-                Lihat Halaman Utama
+            <a href="#" class="project-footer-link">
+                Detail Proyek
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -41,86 +62,7 @@
             </a>
         </div>
     </article>
-
-    <article class="project-box">
-        <div>
-            <span class="project-tag-badge">Web Application</span>
-            <h2 class="project-name">AldoRidlo - Portofolio</h2>
-            <p class="project-summary">
-                Portofolio Pribadi.
-            </p>
-            <div class="project-pills">
-                <span class="tech-chip">Next JS</span>
-                <span class="tech-chip">Tailwind CSS</span>
-                <span class="tech-chip">Lenis</span>
-                <span class="tech-chip">GSAP</span>
-            </div>
-        </div>
-        <div>
-            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                Kunjungi Portofolio
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-            </a>
-        </div>
-    </article>
-
-    <article class="project-box">
-        <div>
-            <span class="project-tag-badge">UI / UX Design</span>
-            <h2 class="project-name">Pet Care - Design System & Prototype</h2>
-            <p class="project-summary">
-                Rancangan sistem desain dan prototype aplikasi berbasis web yang menyediakan layanan adopsi,
-                perawatan, dan komunitas bagi pecinta hewan peliharaan.
-            </p>
-            <div class="project-pills">
-                <span class="tech-chip">Figma</span>
-                <span class="tech-chip">Wireframe</span>
-                <span class="tech-chip">Prototype</span>
-                <span class="tech-chip">Design System</span>
-            </div>
-        </div>
-        <div>
-            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                Lihat Hasil
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-            </a>
-        </div>
-    </article>
-
-    <article class="project-box">
-        <div>
-            <span class="project-tag-badge">Web Application</span>
-            <h2 class="project-name">Portofolio Website - Laravel</h2>
-            <p class="project-summary">
-                Portofolio Website Pribadi yang dibangun menggunakan Laravel.
-            </p>
-            <div class="project-pills">
-                <span class="tech-chip">Laravel</span>
-                <span class="tech-chip">Tailwind CSS</span>
-                <span class="tech-chip">Bootstrap CSS</span>
-                <span class="tech-chip">Responsive</span>
-            </div>
-        </div>
-        <div>
-            <a href="" target="_blank" rel="noopener noreferrer" class="project-footer-link">
-                Kunjungi Portofolio
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-            </a>
-        </div>
-    </article>
+    {% endfor %}
 </section>
-
 
 {% endblock %}

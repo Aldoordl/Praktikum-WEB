@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Portfolio Web{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
 <section class="hero-box anim-entry">
     <div class="profile-avatar-wrap">
-        <img src="{{ url_for('static', filename='images/profile.PNG') }}" alt="Foto Aldoo" class="profile-avatar-img">
+        <img src="{{ url_for('static', filename='images/profile.PNG') }}" alt="Foto {{ profil.nama }}" class="profile-avatar-img">
     </div>
 
     <div class="hero-info">
@@ -22,8 +22,8 @@
             komputer. Fokus belajar membangun solusi digital yang fungsional, bersih, dan nyaman digunakan.
         </p>
         <div class="hero-cta-row">
-            <a href="/project" class="btn-primary">Lihat Proyek</a>
-            <a href="/contact" class="btn-secondary">Hubungi Saya</a>
+            <a href="{{ url_for('project') }}" class="btn-primary">Lihat Proyek</a>
+            <a href="{{ url_for('contact') }}" class="btn-secondary">Hubungi Saya</a>
         </div>
     </div>
 </section>
@@ -47,6 +47,5 @@
     </div>
     {% endfor %}
 </section>
-</main>
 
 {% endblock %}

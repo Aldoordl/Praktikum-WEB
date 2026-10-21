@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldoo - {% block title %}{% endblock %}</title>
+    <title>{{ profil.nama }} - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -12,7 +12,7 @@
     <header class="site-header">
         <nav class="nav-bar">
             <a href="{{ url_for('index') }}" class="nav-logo">
-                <span>Aldoo</span>
+                <span>{{ profil.nama }}</span>
                 <span class="nav-logo-tag">dev</span>
             </a>
             <ul class="nav-links">
@@ -37,7 +37,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2025 Aldoo. Dibuat untuk Praktikum Pemrograman Web.</p>
+        <p>&copy; 2025 {{ profil.nama }}. Dibuat untuk Praktikum Pemrograman Web.</p>
     </footer>
 </body>
 

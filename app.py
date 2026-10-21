@@ -11,9 +11,9 @@ profil = {
 }
 
 media_sosial = [
-    {"nama": "Instagram", "link": "https://www.instagram.com/aldoorenaldi/", "icon": "instagram"},
-    {"nama": "TikTok", "link": "https://www.tiktok.com/@aldoorenaldi/", "icon": "tiktok"},
-    {"nama": "GitHub", "link": "https://github.com/aldoorenaldi/", "icon": "github"},
+    {"nama": "Instagram", "link": "https://www.instagram.com/aldoo/", "icon": "instagram"},
+    {"nama": "TikTok", "link": "https://www.tiktok.com/@aldoo/", "icon": "tiktok"},
+    {"nama": "GitHub", "link": "https://github.com/aldoo/", "icon": "github"},
 ]
 
 matkul = [
@@ -57,19 +57,19 @@ def about():
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html', aktif="contact", media_sosial=media_sosial)
+    return render_template('contact.html', aktif="contact", media_sosial=media_sosial, profil=profil)
 
 @app.route('/skill')
 def skill():
-    return render_template('skill.html', aktif="skill", keahlian=keahlian)
+    return render_template('skill.html', aktif="skill", keahlian=keahlian, profil=profil)
 
 @app.route('/project')
 def project():
-    return render_template('project.html', aktif="project", proyek=proyek)
+    return render_template('project.html', aktif="project", proyek=proyek, profil=profil)
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html', aktif="blog", artikel=artikel)
+    return render_template('blog.html', aktif="blog", artikel=artikel, profil=profil)
 
 if __name__ == '__main__':
     app.run(debug=True)

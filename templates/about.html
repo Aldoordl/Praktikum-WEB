@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Portfolio Web{% endblock %}
+{% block title %}About{% endblock %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
 
 <section class="about-card-box anim-entry delay-1">
     <p class="about-paragraph">
-        Halo, perkenalkan saya <strong>Aldoo</strong>. Saat ini saya sedang menempuh semester 3 program studi
+        Halo, perkenalkan saya <strong>{{ profil.nama }}</strong>. Saat ini saya sedang menempuh semester {{ profil.semester }} program studi
         Informatika. Ketertarikan saya pada dunia pemrograman bermula dari rasa ingin tahu bagaimana sebuah
         website dapat menyajikan informasi secara interaktif dan efisien.
     </p>
