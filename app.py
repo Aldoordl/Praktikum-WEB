@@ -32,12 +32,12 @@ keahlian = [
     {"nama": "Git", "level": 65}
 ]
 proyek = [
-    {"judul": "Web Portofolio", "desc": "Website portofolio pribadi dengan desain dark glass, animasi CSS, dan Flask.", "tech": ["HTML", "CSS", "Flask"], "icon": "monitor"},
-    {"judul": "Sistem Data Mahasiswa", "desc": "Aplikasi CRUD data mahasiswa dengan Flask dan SQLite untuk tugas kuliah.", "tech": ["Flask", "SQLite", "HTML"], "icon": "database"},
-    {"judul": "Game Tebak Angka", "desc": "Game sederhana tebak angka berbasis web dengan logika JavaScript interaktif.", "tech": ["HTML", "CSS", "JS"], "icon": "gamepad"},
-    {"judul": "Web Scraper", "desc": "Tool scraping sederhana pakai Python untuk mengambil data dari halaman web.", "tech": ["Python", "BeautifulSoup"], "icon": "search"},
-    {"judul": "Catatan Kuliah", "desc": "Blog catatan kuliah interaktif untuk dokumentasi materi pembelajaran.", "tech": ["Flask", "Markdown"], "icon": "file"},
-    {"judul": "Dashboard Sederhana", "desc": "Dashboard data sederhana dengan grafik CSS murni, tanpa library JS.", "tech": ["HTML", "CSS"], "icon": "chart"}
+    {"id" : 1, "judul": "Web Portofolio", "desc": "Website portofolio pribadi dengan desain dark glass, animasi CSS, dan Flask.", "tech": ["HTML", "CSS", "Flask"], "icon": "monitor"},
+    {"id" : 2,"judul": "Sistem Data Mahasiswa", "desc": "Aplikasi CRUD data mahasiswa dengan Flask dan SQLite untuk tugas kuliah.", "tech": ["Flask", "SQLite", "HTML"], "icon": "database"},
+    {"id" : 3,"judul": "Game Tebak Angka", "desc": "Game sederhana tebak angka berbasis web dengan logika JavaScript interaktif.", "tech": ["HTML", "CSS", "JS"], "icon": "gamepad"},
+    {"id" : 4,"judul": "Web Scraper", "desc": "Tool scraping sederhana pakai Python untuk mengambil data dari halaman web.", "tech": ["Python", "BeautifulSoup"], "icon": "search"},
+    {"id" : 5,"judul": "Catatan Kuliah", "desc": "Blog catatan kuliah interaktif untuk dokumentasi materi pembelajaran.", "tech": ["Flask", "Markdown"], "icon": "file"},
+    {"id" : 6,"judul": "Dashboard Sederhana", "desc": "Dashboard data sederhana dengan grafik CSS murni, tanpa library JS.", "tech": ["HTML", "CSS"], "icon": "chart"}
 ]
 artikel = [
     {"tanggal": "5 Okt 2025", "judul": "CSS Grid vs Flexbox", "ringkas": "Kapan harus pake Grid, kapan harus pake Flexbox? Simpelnya: Grid buat 2 dimensi, Flexbox buat 1 dimensi.", "tag": "CSS"},
@@ -56,8 +56,14 @@ def index():
 def about():
     return render_template('about.html', aktif="about", profil=profil)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        nama = request.form.get('nama')
+        email = request.form.get('email')
+        pesan = request.form.get('pesan')
+        flash(f"Terima kasih, {nama}! Masukan anda telah berhasil dikirim.", 'success')
+        return redirect(url_for('contact'))
     return render_template('contact.html', aktif="contact", media_sosial=media_sosial, profil=profil)
 
 @app.route('/skill')
@@ -71,6 +77,27 @@ def project():
 @app.route('/blog')
 def blog():
     return render_template('blog.html', aktif="blog", artikel=artikel, profil=profil)
+
+@app.route('/project/<int:id>')
+def detail_project(id):
+    project = next((item for item in proyek if item["id"] == id), None)
+    return render_template('project_detail.html', project=project, proyek=proyek, id=id, profil=profil, aktif='project')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username == 'aldo' and password == 'admin':
+            flash(f"Login berhasil! Selamat datang, {username}.", 'success')
+            return redirect(url_for('index'))
+        flash("Username dan password harus diisi dengan benar.", 'error')
+        return redirect(url_for('login'))
+    return render_template('login.html', aktif="login", profil=profil)
+
+@app.route('/halo/<nama>')
+def sapa_user(nama):
+    return f"<h1>Halo, {nama}!</h1><p>Selamat datang di website saya.</p>"
 
 if __name__ == '__main__':
     app.run(debug=True)

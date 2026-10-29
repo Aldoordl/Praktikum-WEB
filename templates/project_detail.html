@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.judul if project else 'Detail Proyek' }}{% endblock %}
+
+{% block content %}
+
+<div class="section-head anim-entry">
+    <span class="section-label-badge">01</span>
+    <h1 class="section-caption">Detail Proyek</h1>
+    <div class="section-divider-line"></div>
+</div>
+
+<p class="section-subtext anim-entry delay-1">
+    Informasi mendalam mengenai proyek dan teknologi yang digunakan.
+</p>
+
+{% if project %}
+<section class="about-card-box anim-entry delay-1">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+        <div>
+            <span class="project-tag-badge">Proyek #{{ project.id }}</span>
+            <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-top: 8px;">{{ project.judul }}</h2>
+        </div>
+        <a href="{{ url_for('project') }}" class="btn-secondary" style="font-size: 0.82rem; padding: 8px 16px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Kembali
+        </a>
+    </div>
+
+    <p class="about-paragraph">
+        {{ project.desc }}
+    </p>
+
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+        <h3 style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;">Teknologi Terkait</h3>
+        <div class="project-pills" style="margin-top: 0;">
+            {% for t in project.tech %}
+            <span class="tech-chip" style="font-size: 0.8rem; padding: 6px 12px;">{{ t }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="about-card-box anim-entry delay-1" style="text-align: center; padding: 48px 24px;">
+    <h2 style="font-size: 1.3rem; margin-bottom: 10px;">Proyek Tidak Ditemukan</h2>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">Proyek dengan ID {{ id }} tidak ditemukan dalam data.</p>
+    <a href="{{ url_for('project') }}" class="btn-secondary">Kembali ke Portofolio</a>
+</section>
+{% endif %}
+
+{% endblock %}
+

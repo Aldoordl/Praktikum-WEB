@@ -70,9 +70,8 @@
     <div class="section-divider-line"></div>
 </div>
 
-<form action="#" method="POST" class="contact-form-grid anim-entry delay-2"
-    onsubmit="event.preventDefault(); alert('Terima kasih, pesan Anda berhasil dikirim!');">
-    <div class="form-field">
+<form action="{{ url_for('contact') }}" method="POST" class="contact-form-grid anim-entry delay-2">
+    <div class=" form-field">
         <label for="nama" class="field-label">NAMA LENGKAP</label>
         <input type="text" id="nama" name="nama" class="input-control" placeholder="Masukkan nama Anda" required>
     </div>
