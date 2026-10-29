@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
+app.secret_key = 'inikuncirahasiakita_asek123'
 
 profil = {
     "nama": "Aldoo",
